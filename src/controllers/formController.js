@@ -6,6 +6,7 @@ const postPruebaAfectiva = async (req, res) => {
     const pruebaAfectiva = await formService.createPruebaAfectiva(req.body);
     res.status(201).json(pruebaAfectiva);
   } catch (error) {
+    console.error('Error in postPruebaAfectiva:', error);
     res.status(500).json({ message: error.message });
   }
 };
@@ -16,6 +17,7 @@ const postPruebaDescriptiva = async (req, res) => {
     const pruebaDescriptiva = await formService.createPruebaDescriptiva(req.body);
     res.status(201).json(pruebaDescriptiva);
   } catch (error) {
+    console.error('Error in postPruebaDescriptiva:', error);
     res.status(500).json({ message: error.message });
   }
 };
@@ -26,6 +28,7 @@ const postGeneral = async (req, res) => {
     const general = await formService.createGeneral(req.body);
     res.status(201).json(general);
   } catch (error) {
+    console.error('Error in postGeneral:', error);
     res.status(500).json({ message: error.message });
   }
 };

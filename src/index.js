@@ -2,6 +2,7 @@ const express = require('express'); //importamos express, mongoose, formeoutes y
 const mongoose = require('mongoose');
 const formRoutes = require('./routes/formRoutes');
 require('dotenv').config();
+const cors = require('cors');
 
 const app = express(); //inicializamos express
 
@@ -10,7 +11,9 @@ const MONGO_URI = process.env.MONGO_URI; //cargamos uri de db (env)
 
 
 app.use(express.json());//middleware para que express entienda json
-app.use('/api', formRoutes); //seteamos la ruta base para la api y asociamos 
+app.use(cors()); //seteamos la ruta base para la api y asociamos 
+app.use('/api', formRoutes);
+
 
 mongoose.connect(MONGO_URI) //CONECTAMOS LA DB ESO ESO ESO
   .then(() => {
